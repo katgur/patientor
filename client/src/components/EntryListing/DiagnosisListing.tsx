@@ -13,11 +13,13 @@ function DiagnosisListing({ diagnosisCodes }: Props) {
     const { handleError } = useError();
 
     useEffect(() => {
-        diagnosesService.getAll()
-            .then(data => {
-                setDiagnoses(data);
-            })
-            .catch(error => handleError(error));
+        if (!diagnoses) {
+            diagnosesService.getAll()
+                .then(data => {
+                    setDiagnoses(data);
+                })
+                .catch(error => handleError(error));
+        }
     }, [handleError]);
 
     return (

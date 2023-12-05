@@ -21,11 +21,13 @@ const PatientPage = () => {
         if (!id) {
             return;
         }
-        patientService.getById(id)
-            .then(data => {
-                setPatient(data);
-            })
-            .catch(error => handleError(error));
+        if (!patient) {
+            patientService.getById(id)
+                .then(data => {
+                    setPatient(data);
+                })
+                .catch(error => handleError(error));
+        }
     }, [handleError, params.id]);
 
     let icon;

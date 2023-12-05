@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Box, Table, Button, TableHead, Typography, TableCell, TableRow, TableBody } from '@mui/material';
+import { Box, Table, Button, TableHead, Typography, TableCell, TableRow, TableBody, Stack } from '@mui/material';
 
 import { PatientFormValues, Patient } from "../../types";
 import AddPatientModal from "../AddPatientModal";
@@ -36,14 +36,14 @@ const PatientListPage = ({ patients, setPatients }: Props) => {
 
   return (
     <div className="App">
-      <Button variant="contained" onClick={() => openModal()}>
-        Add New Patient
-      </Button>
-      <Box>
-        <Typography align="center" variant="h6">
+      <Stack direction="row" justifyContent="space-between">
+        <Typography variant="h5">
           Patient list
         </Typography>
-      </Box>
+        <Button variant="contained" onClick={() => openModal()}>
+          Add New Patient
+        </Button>
+      </Stack>
       <Table style={{ marginBottom: "1em" }}>
         <TableHead>
           <TableRow>

@@ -18,6 +18,7 @@ function HealthCheckForm({ date, specialist, description, diagnosesCodes, onCanc
             type: 'HealthCheck',
             healthCheckRating: Object.values(HealthCheckRating).slice(0, 4).indexOf(healthCheckRating.value[0]),
         };
+        console.log(entry);
         onSaveButtonClick(entry);
     };
 

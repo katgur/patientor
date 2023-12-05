@@ -24,9 +24,11 @@ function EntryListing({ patientId }: Props) {
     const params = useParams();
 
     useEffect(() => {
-        patientsService.getEntriesById(patientId)
-            .then(data => setEntries(data))
-            .catch(error => handleError(error));
+        if (!entries) {
+            patientsService.getEntriesById(patientId)
+                .then(data => setEntries(data))
+                .catch(error => handleError(error));
+        }
     }, [handleError, patientId]);
 
     const onAddEntryClick = (type: string) => {
@@ -58,6 +60,9 @@ function EntryListing({ patientId }: Props) {
             </Stack>
             {entryForm.isShown && <AddEntry type={entryForm.type} {...{ onCancelButtonClick, onSaveButtonClick }} />}
             <Stack spacing={2}>
+                {
+                    (!entries || entries.length === 0) && <Typography style={{ color: "gray" }}>No entries yet</Typography>
+                }
                 {
                     entries && entries.map(entry => <EntryDetails key={entry.id} entry={entry} />)
                 }
