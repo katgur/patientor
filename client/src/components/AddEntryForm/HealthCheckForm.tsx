@@ -6,7 +6,7 @@ import HealthCheckRatingSelect from "./HealthRatingSelect";
 import useSelect from "../../hooks/useSelect";
 
 function HealthCheckForm({ date, specialist, description, diagnosesCodes, onCancelButtonClick, onSaveButtonClick }: BaseEntryForm) {
-    const healthCheckRating = useSelect();
+    const healthCheckRating = useSelect({ startValue: 'Healthy' });
 
     const onSubmit = (event: { preventDefault: () => void; }) => {
         event.preventDefault();
@@ -22,7 +22,7 @@ function HealthCheckForm({ date, specialist, description, diagnosesCodes, onCanc
     };
 
     return (
-        <form onSubmit={onSubmit} style={{width: "50%"}}>
+        <form onSubmit={onSubmit} style={{ width: "50%" }}>
             <Stack spacing={2}>
                 <TextField {...date} />
                 <TextField {...specialist} />

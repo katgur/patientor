@@ -9,3 +9,7 @@ export const never = (): never => {
         `Unhandled discriminated union member`
     );
 };
+
+export const getDate = (): string => {
+    return new Date().toJSON().split('T')[0];
+}
