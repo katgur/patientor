@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Alert, SvgIcon, Typography } from '@mui/material';
+import { Alert, Card, SvgIcon, Typography } from '@mui/material';
 import FemaleIcon from '@mui/icons-material/Female';
 import MaleIcon from '@mui/icons-material/Male';
 
@@ -39,19 +39,21 @@ const PatientPage = () => {
         <div>
             {error && <Alert severity="error">{error}</Alert>}
             {patient &&
-                <div>
-                    <Typography variant="h4" style={{ marginTop: "0.5em" }}>
-                        {patient.name}
-                        <SvgIcon>
-                            {icon}
-                        </SvgIcon>
-                    </Typography>
-                    <Typography>
-                        ssn: {patient.ssn}
-                    </Typography>
-                    <Typography>
-                        occupation: {patient.occupation}
-                    </Typography>
+                <div style={{ paddingTop: "2rem" }}>
+                    <Card style={{ padding: "1rem" }}>
+                        <Typography variant="h4">
+                            {patient.name}
+                            <SvgIcon>
+                                {icon}
+                            </SvgIcon>
+                        </Typography>
+                        <Typography>
+                            ssn {patient.ssn}
+                        </Typography>
+                        <Typography>
+                            occupation {patient.occupation}
+                        </Typography>
+                    </Card>
                     <EntryListing patientId={patient.id} />
                 </div>
             }

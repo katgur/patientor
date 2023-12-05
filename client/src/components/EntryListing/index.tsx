@@ -46,21 +46,23 @@ function EntryListing({ patientId }: Props) {
     };
 
     return (
-        <div>
-            <Typography variant="h5" style={{ marginTop: "0.5em" }}>
+        <Stack spacing={1} style={{ marginTop: "2rem" }}>
+            <Typography variant="h5">
                 Entries
             </Typography>
             {error && <Alert severity="error">{error}</Alert>}
-            <Button onClick={() => onAddEntryClick('HealthCheck')}>Add Healthcheck Entry</Button>
-            <Button onClick={() => onAddEntryClick('Hospital')}>Add Hospital Entry</Button>
-            <Button onClick={() => onAddEntryClick('OccupationalHealthcare')}>Add Occupation Healtcare Entry</Button>
+            <Stack spacing={1} direction="row">
+                <Button onClick={() => onAddEntryClick('HealthCheck')}>Add Healthcheck Entry</Button>
+                <Button onClick={() => onAddEntryClick('Hospital')}>Add Hospital Entry</Button>
+                <Button onClick={() => onAddEntryClick('OccupationalHealthcare')}>Add Occupation Healtcare Entry</Button>
+            </Stack>
             {entryForm.isShown && <AddEntry type={entryForm.type} {...{ onCancelButtonClick, onSaveButtonClick }} />}
             <Stack spacing={2}>
                 {
                     entries && entries.map(entry => <EntryDetails key={entry.id} entry={entry} />)
                 }
             </Stack>
-        </div>
+        </Stack>
     );
 }
 

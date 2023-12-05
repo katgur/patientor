@@ -10,8 +10,6 @@ function HealthCheckForm({ date, specialist, description, diagnosesCodes, onCanc
 
     const onSubmit = (event: { preventDefault: () => void; }) => {
         event.preventDefault();
-        console.log(Object.values(HealthCheckRating).slice(0, 4), healthCheckRating.value[0]);
-
         const entry: HealthCheckEntryFormValues = {
             date: date.value,
             specialist: specialist.value,

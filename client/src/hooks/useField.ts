@@ -6,7 +6,7 @@ interface Props {
 }
 
 function useField({ label, type }: Props) {
-    const [value, setValue] = useState<string>('');
+    const [value, setValue] = useState<string>(type === 'date' ? ' ' : '');
     const onChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         setValue(event.target.value);
     };
