@@ -36,6 +36,9 @@ const PatientListPage = ({ patients, setPatients }: Props) => {
 
   return (
     <div className="App">
+      <Button variant="contained" onClick={() => openModal()}>
+        Add New Patient
+      </Button>
       <Box>
         <Typography align="center" variant="h6">
           Patient list
@@ -69,9 +72,6 @@ const PatientListPage = ({ patients, setPatients }: Props) => {
         error={error}
         onClose={closeModal}
       />
-      <Button variant="contained" onClick={() => openModal()}>
-        Add New Patient
-      </Button>
     </div>
   );
 };
