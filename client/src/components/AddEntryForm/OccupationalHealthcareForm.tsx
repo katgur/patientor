@@ -15,7 +15,7 @@ function OccupationalHealthcareForm({ date, specialist, description, diagnosesCo
             date: date.value,
             specialist: specialist.value,
             description: specialist.value,
-            diagnosisCodes: diagnosesCodes.value.split(','),
+            diagnosisCodes: diagnosesCodes.value,
             type: 'OccupationalHealthcare',
             sickLeave: {
                 startDate: startDate.value,

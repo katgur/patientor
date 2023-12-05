@@ -48,7 +48,7 @@ function EntryListing({ patientId }: Props) {
     };
 
     return (
-        <Stack spacing={1} style={{ marginTop: "2rem" }}>
+        <Stack spacing={1} style={{ margin: "2rem 0" }}>
             <Typography variant="h5">
                 Entries
             </Typography>

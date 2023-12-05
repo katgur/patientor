@@ -15,10 +15,10 @@ function HealthCheckCard({ entry }: Props) {
             <Typography>{entry.date} <Icon><HealthAndSafetyIcon /></Icon></Typography>
             <Typography>{entry.description}</Typography>
             {
-                Array(entry.healthCheckRating).fill(<FavoriteBorderIcon />).map((icon, index) => <Icon key={index}>{icon}</Icon>)
+                Array(4 - entry.healthCheckRating).fill(<FavoriteIcon />).map((icon, index) => <Icon key={index}>{icon}</Icon>)
             }
             {
-                Array(4 - entry.healthCheckRating).fill(<FavoriteIcon />).map((icon, index) => <Icon key={index}>{icon}</Icon>)
+                Array(entry.healthCheckRating).fill(<FavoriteBorderIcon />).map((icon, index) => <Icon key={index}>{icon}</Icon>)
             }
             <Typography>diagnosed by {entry.specialist}</Typography>
             {entry.diagnosisCodes && <DiagnosisListing diagnosisCodes={entry.diagnosisCodes} />}

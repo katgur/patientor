@@ -73,7 +73,7 @@ export const toCreatePatient = (unknownData: unknown): CreatePatient => {
 };
 
 const parseHealthCheckRating = (rating: unknown): HealthCheckRating => {
-    if (!rating || !isNumber(rating) || !isHealthCheckRating(rating)) {
+    if (rating === undefined || rating === null || !isNumber(rating) || !isHealthCheckRating(rating)) {
         throw new Error(`Incorrect or missing healthcheck rating`);
     }
     return rating;
